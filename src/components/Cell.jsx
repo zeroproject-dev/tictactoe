@@ -1,12 +1,11 @@
 export function Cell({ index, updateBoard, children }) {
   const handleClick = () => {
-    updateBoard(index)
-  }
+    updateBoard(index);
+  };
 
   return (
-    <div onClick={handleClick} className="cell">
+    <button type="button" onClick={handleClick} className="cell">
       {children}
-    </div>
-  )
+    </button>
+  );
 }
-

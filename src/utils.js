@@ -10,11 +10,4 @@ export const verifyWinner = (board) => {
   return null;
 }
 
-export const checkEndGame = (board) => {
-  return board.every((cell) => cell !== null);
-}
-
-export const verifyCell = (board, index) => {
-  return board[index] === null;
-}
-
+export const checkEndGame = (board) => board.every((cell) => cell !== null)
