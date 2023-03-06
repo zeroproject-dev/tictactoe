@@ -2,18 +2,12 @@ import { useEffect, useState } from 'react';
 
 import { Cell } from './components/Cell';
 
-import { TURNS } from './constants';
+import { TURNS, DIFFICULTY } from './constants';
 import { checkEndGame, verifyWinner } from './utils';
 import { easyGame, mediumGame, hardGame } from './logic';
 
 import './App.css';
-
-const DIFFICULTY = {
-  NONE: 'none',
-  EASY: 'easy',
-  MEDIUM: 'medium',
-  HARD: 'hard'
-};
+import { Difficulties } from './components/Difficulties';
 
 function App() {
   const [machineDifficulty, setMachineDifficulty] = useState(DIFFICULTY.NONE);
@@ -78,23 +72,14 @@ function App() {
   return (
     <div className="main">
       <h1 className="title">Tic Tac Toe</h1>
-      <div className="difficulties">
-        <button type="button" onClick={() => updateDifficulty(DIFFICULTY.NONE)}>
-          2 Player
-        </button>
-        <button type="button" onClick={() => updateDifficulty(DIFFICULTY.EASY)}>
-          Easy
-        </button>
-        <button
-          type="button"
-          onClick={() => updateDifficulty(DIFFICULTY.MEDIUM)}
-        >
-          Agent
-        </button>
-        <button type="button" onClick={() => updateDifficulty(DIFFICULTY.HARD)}>
-          Perceptron
-        </button>
-      </div>
+
+      <Difficulties updateDifficulty={updateDifficulty} />
+
+      <button type="button" onClick={restartGame}>
+        Restart
+      </button>
+      <br />
+
       <div className="board">
         {board.map((cell, rowIndex) => (
           <Cell key={rowIndex} index={rowIndex} updateBoard={updateBoard}>
@@ -111,9 +96,6 @@ function App() {
           <h1 className="title">
             {winner === false ? 'Empate' : `Winner ${winner}`}
           </h1>
-          <button type="button" onClick={restartGame}>
-            Restart
-          </button>
         </div>
       )}
     </div>

@@ -13,3 +13,10 @@ export const WINNING_COMBINATIONS = [
   [0, 4, 8],
   [2, 4, 6]
 ];
+
+export const DIFFICULTY = {
+  NONE: 'none',
+  EASY: 'easy',
+  MEDIUM: 'medium',
+  HARD: 'hard'
+};

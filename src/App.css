@@ -46,3 +46,12 @@
   gap: 1rem;
   margin-bottom: 1rem;
 }
+
+.winner {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  min-height: 70px;
+  background-color: rgba(255, 255, 255, 0.1);
+}

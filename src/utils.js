@@ -8,6 +8,6 @@ export const verifyWinner = (board) => {
   }
 
   return null;
-}
+};
 
-export const checkEndGame = (board) => board.every((cell) => cell !== null)
+export const checkEndGame = (board) => board.every((cell) => cell !== null);
