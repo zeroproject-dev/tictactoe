@@ -16,7 +16,7 @@ const DIFFICULTY = {
 };
 
 function App() {
-  const [machineDifficulty, setMachineDifficulty] = useState(DIFFICULTY.MEDIUM);
+  const [machineDifficulty, setMachineDifficulty] = useState(DIFFICULTY.NONE);
   const [turn, setTurn] = useState(TURNS.X);
   const [board, setBoard] = useState(Array(9).fill(null));
   const [winner, setWinner] = useState(null);
@@ -70,9 +70,31 @@ function App() {
     }
   }, [machineDifficulty, turn]);
 
+  const updateDifficulty = (difficulty) => {
+    restartGame();
+    setMachineDifficulty(difficulty);
+  };
+
   return (
     <div className="main">
       <h1 className="title">Tic Tac Toe</h1>
+      <div className="difficulties">
+        <button type="button" onClick={() => updateDifficulty(DIFFICULTY.NONE)}>
+          2 Player
+        </button>
+        <button type="button" onClick={() => updateDifficulty(DIFFICULTY.EASY)}>
+          Easy
+        </button>
+        <button
+          type="button"
+          onClick={() => updateDifficulty(DIFFICULTY.MEDIUM)}
+        >
+          Agent
+        </button>
+        <button type="button" onClick={() => updateDifficulty(DIFFICULTY.HARD)}>
+          Perceptron
+        </button>
+      </div>
       <div className="board">
         {board.map((cell, rowIndex) => (
           <Cell key={rowIndex} index={rowIndex} updateBoard={updateBoard}>
@@ -80,7 +102,9 @@ function App() {
           </Cell>
         ))}
       </div>
-      <h2 className="turn">{turn === TURNS.X ? 'X' : 'O'} turn</h2>
+      {machineDifficulty === DIFFICULTY.NONE && (
+        <h2 className="turn">{turn === TURNS.X ? 'X' : 'O'} turn</h2>
+      )}
 
       {winner !== null && (
         <div className="winner">

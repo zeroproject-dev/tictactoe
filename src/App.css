@@ -17,7 +17,8 @@
   margin: 0 auto;
   padding: 1rem;
   border-radius: 8px;
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1), 0 2px 4px rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1),
+    0 2px 4px rgba(255, 255, 255, 0.1);
 }
 
 .cell {
@@ -36,4 +37,12 @@
   font-size: 1.5rem;
   font-weight: 700;
   text-align: center;
+}
+
+.difficulties {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
 }
